@@ -1,0 +1,28 @@
+{
+  "name": "webtech",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "server.js",
+  "dependencies": {
+    "firebase-admin": "^8.12.1",
+    "sqlite": "^4.0.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamenPB/webTech.git"
+  },
+  "keywords": [
+    "webtech"
+  ],
+  "author": "kamen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kamenPB/webTech/issues"
+  },
+  "homepage": "https://github.com/kamenPB/webTech#readme"
+}
