@@ -38,3 +38,12 @@ dbRefPlayers.on("child_removed", snap => {
   const optionToRemove = document.getElementById(snap.key);
   optionToRemove.remove();
 });
+
+
+dbRefPlayers.once("value")
+  .then(function(snap) {
+    snap.forEach(function(childSnap){
+      var childData = childSnap.val();
+      console.log(childData);
+    });
+  });
