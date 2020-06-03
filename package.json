@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "firebase-admin": "^8.12.1",
+    "jQuery": "^1.7.4",
     "sqlite": "^4.0.9"
   },
   "devDependencies": {},
