@@ -22,11 +22,18 @@ const selectPlayerName = document.getElementById("selectPlayerName");
 const dbRefPlayers = firebase.database().ref().child("players");
 
 // sync
+var numberOfPlayers = 0;
 dbRefPlayers.on("child_added", snap => {
+  numberOfPlayers++;
   const option = document.createElement("option");
   option.innerText = snap.val().name;
   option.id = snap.key;
   selectPlayerName.appendChild(option);
+  if(numberOfPlayers == 4){ // default selection
+    option.selected = true;
+  } else {
+    option.selected = false;
+  }
 });
 
 dbRefPlayers.on("child_changed", snap => {
@@ -40,10 +47,24 @@ dbRefPlayers.on("child_removed", snap => {
 });
 
 
-dbRefPlayers.once("value")
-  .then(function(snap) {
-    snap.forEach(function(childSnap){
-      var childData = childSnap.val();
-      console.log(childData);
-    });
+
+// log name of every child of players
+function selectionChange() {
+  var selectedOption = findSelectedOption();
+
+  //console.log(selectedOption);
+  var c = 0;
+  dbRefPlayers.on("value", snap => {
+      snap.forEach(childSnap => {
+        var childData = childSnap.val();
+        c++;
+
+        if(childData.name == selectedOption){
+          console.log(childData);
+          console.log(c);
+        }
+
+
+      });
   });
+}

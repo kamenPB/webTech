@@ -12,10 +12,16 @@ $(function(){
 
 // Edit a player dialog
 $(function(){
-  $("#showEditPlayerDialog").click(function(){
+  $("#showEditPlayerDialog").click(function() {
     $("#editPlayerDiv").removeClass("hidden");
     $("#editPlayerDiv").dialog({
       //resize: "auto"
     });
   });
 });
+
+
+// find selected option in player edit dialog
+function findSelectedOption(){
+  return $('#selectPlayerName').val();
+}
