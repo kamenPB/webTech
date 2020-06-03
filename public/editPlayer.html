@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Kamen's webpage</title>
+    <title>Add Player</title>
 
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.10.0/firebase-auth.js"></script>
@@ -13,19 +13,16 @@
   </head>
   <body>
 
-    <pre id="players"></pre>
 
-    <form method="post" action="/addPlayer.html">
-        <input type="submit" value="Add a player" />
-    </form>
-
-    <form method="post" action="/editPlayer.html">
-        <input type="submit" value="Edit a player" />
-    </form>
-
-    <ul id="ulList"></ul>
+  <select id="selectPlayerName"></select>
 
 
-  <script src="fb.js"></script>
+  <form method="post" action="/index.html">
+      <input type="submit" value="Back" />
+  </form>
+
+
+
+  <script src="editPlayerSelect.js"></script>
   </body>
 </html>
