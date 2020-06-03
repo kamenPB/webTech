@@ -17,10 +17,27 @@ if (!firebase.apps.length) {
 
 
 // get elements
-const preObject = document.getElementById("players");
+const prePlayers = document.getElementById("players");
+const ulList = document.getElementById("ulList");
 
 // create references
-const dbRefObject = firebase.database().ref().child("players");
+const dbRefPlayers = firebase.database().ref().child("players");
 
 // sync
-dbRefObject.on("value", snap => console.log(snap.val()));
+dbRefPlayers.on("value", snap => prePlayers.innerText = JSON.stringify(snap.val(), null, 3));
+dbRefPlayers.on("child_added", snap => {
+  const li = document.createElement("li");
+  li.innerText = "Name: " + snap.val().name + " Age: " + snap.val().age;
+  li.id = snap.key;
+  ulList.appendChild(li);
+});
+
+dbRefPlayers.on("child_changed", snap => {
+  const liChanged = document.getElementById(snap.key);
+  liChanged.innerText = "Name: " + snap.val().name + " Age: " + snap.val().age;
+});
+
+dbRefPlayers.on("child_removed", snap => {
+  const liToRemove = document.getElementById(snap.key);
+  liToRemove.remove();
+});
