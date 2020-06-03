@@ -15,7 +15,8 @@ $(function(){
   $("#showEditPlayerDialog").click(function() {
     $("#editPlayerDiv").removeClass("hidden");
     $("#editPlayerDiv").dialog({
-      //resize: "auto"
+      width: 'auto',
+      height: 'auto'
     });
   });
 });

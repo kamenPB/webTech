@@ -67,25 +67,52 @@ function selectionChange() {
 
 
 function generateFields(data) {
+
+  // get the editable div from index and clean it
+  const editDiv = document.getElementById("editableDiv");
+  editDiv.innerHTML = '';
+  const hr = document.createElement("hr");
+  editDiv.appendChild(hr);
+
+
   for (var prop in data) {
     //console.log(prop);
     if (Object.prototype.hasOwnProperty.call(data, prop)) {
 
       // create label for a property
-      var label;
+      var labelText;
+      var inputType;
       switch (prop) {
         case "name":
-          label = "Full name: ";
+          labelText = "Full name: ";
+          inputType = "text";
           break;
         case "age":
-          label = "Age: ";
+          labelText = "Age: ";
+          inputType = "number";
           break;
-        default: label = "DEFAULT CASE TRIGGERED";
+        default: labelText = "DEFAULT CASE TRIGGERED";
       }
 
-      // create textbox with current value in it
 
-      // save button
+
+      // create div with label and textbox with current value in it
+      const div = document.createElement("div");
+      const label = document.createElement("label")
+      label.innerHTML  = labelText;
+      div.appendChild(label);
+
+      const input = document.createElement("input");
+      input.type = inputType;
+      input.defaultValue = data[prop];
+      div.appendChild(input);
+
+      editDiv.appendChild(div);
+
+
+      // save button to update database
+
+
       console.log(prop);
       console.log(data[prop]);
     }
