@@ -17,23 +17,18 @@ if (!firebase.apps.length) {
 
 // get elements
 const selectPlayerName = document.getElementById("selectPlayerName");
+// set default to empty
+selectPlayerName.selectedIndex = 0;
 
 // create references
 const dbRefPlayers = firebase.database().ref().child("players");
 
 // sync
-var numberOfPlayers = 0;
 dbRefPlayers.on("child_added", snap => {
-  numberOfPlayers++;
   const option = document.createElement("option");
   option.innerText = snap.val().name;
   option.id = snap.key;
   selectPlayerName.appendChild(option);
-  if(numberOfPlayers == 4){ // default selection
-    option.selected = true;
-  } else {
-    option.selected = false;
-  }
 });
 
 dbRefPlayers.on("child_changed", snap => {
@@ -62,9 +57,37 @@ function selectionChange() {
         if(childData.name == selectedOption){
           console.log(childData);
           console.log(c);
+
+          generateFields(childData);
+
         }
-
-
       });
   });
+}
+
+
+function generateFields(data) {
+  for (var prop in data) {
+    //console.log(prop);
+    if (Object.prototype.hasOwnProperty.call(data, prop)) {
+
+      // create label for a property
+      var label;
+      switch (prop) {
+        case "name":
+          label = "Full name: ";
+          break;
+        case "age":
+          label = "Age: ";
+          break;
+        default: label = "DEFAULT CASE TRIGGERED";
+      }
+
+      // create textbox with current value in it
+
+      // save button
+      console.log(prop);
+      console.log(data[prop]);
+    }
+  }
 }

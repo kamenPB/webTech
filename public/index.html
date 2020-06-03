@@ -45,7 +45,10 @@
     <!-- EDIT A PLAYER FORM -->
     <div id="editPlayerDiv" title="Edit a player" class="hidden">
       <p> Select a player: </p>
-      <select id="selectPlayerName" onchange="selectionChange()"></select>
+      <select id="selectPlayerName" onchange="selectionChange()">
+        <!-- default option -->
+        <option selected="true" disabled="disabled">-- Select a player --</option>  
+      </select>
     </div>
 
 
@@ -53,9 +56,9 @@
     <button id="showEditPlayerDialog">Edit a player</button>
 
 
+    <script src="jQuery.js"></script>
     <script src="editPlayer.js"></script>
     <script src="addPlayer.js"></script>
-    <script src="jQuery.js"></script>
     <script src="debug.js"></script>
   </body>
 </html>

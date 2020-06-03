@@ -33,6 +33,7 @@ const firebaseConfig = {
         //push itself
         var playersRef = firebase.database().ref('players').push().set(
             {
+                // not great to do these 1 by 1
                 name: name,
                 age: age
             }
