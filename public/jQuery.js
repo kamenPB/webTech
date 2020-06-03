@@ -2,6 +2,10 @@
 $(function(){
   $("#showAddPlayerDialog").click(function(){
     $("#addPlayerDiv").removeClass("hidden");
-    $("#addPlayerDiv").dialog();
+    $("#addPlayerDiv").dialog({
+      dialogClass: "addPlayerDialog",
+      resizable: false,
+      width: 400
+    });
   });
 });

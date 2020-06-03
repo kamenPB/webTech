@@ -1,4 +1,10 @@
 .hidden {
-    display: none;
-    visibility: hidden;
+  display: none;
+  visibility: hidden;
+}
+
+.ui-dialog .ui-dialog-title, .ui-dialog .ui-dialog-buttonpane {
+    text-align:center;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
 }

@@ -27,13 +27,20 @@
     </form>
 
     <ul id="ulList"></ul>
-    
+
 
     <div id="addPlayerDiv" title="Add a player" class="hidden">
       <form id='addPlayer'>
-        <input id='inputName' type='text' />
-        <input id='inputAge' type='number' />
+        <div class="name">
+          <label for="inputName">Full name: </label>
+          <input id='inputName' type='text' />
+        </div>
+        <div class="age">
+          <label for="inputAge">Age: </label>
+          <input id='inputAge' type='number' />
+        </div>
         <input type='submit' />
+
       </form>
     </div>
 
