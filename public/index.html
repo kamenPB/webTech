@@ -12,6 +12,9 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"></link>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
     <link rel="stylesheet" href="styles.css"></link>
 
   </head>
@@ -34,13 +37,22 @@
     <p>This is a paragraph.</p>
     <p>This is another paragraph.</p>
 
-    <button>Click me to hide paragraphs</button>
+    <button id="togglePars">Click me to toggle paragraphs</button>
 
-    <div class="popup" onclick="myFunction()">Click me!
-      <span class="popuptext" id="myPopup">Popup text...</span>
+
+    <div id="addPlayerDiv" title="Add a player" class="hidden">
+      <form id='addPlayer'>
+        <input id='inputName' type='text' />
+        <input id='inputAge' type='number' />
+        <input type='submit' />
+      </form>
     </div>
 
-    <script src="jQueryTest.js"></script>
+
+    <button id="showAddPlayerDialog">Click me to show dialog window</button>
+
+    <script src="addPlayer.js"></script>
+    <script src="jQuery.js"></script>
     <script src="fb.js"></script>
   </body>
 </html>
