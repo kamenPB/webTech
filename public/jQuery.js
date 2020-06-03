@@ -3,6 +3,7 @@ $(function(){
   $("#showAddPlayerDialog").click(function(){
     $("#addPlayerDiv").removeClass("hidden");
     $("#addPlayerDiv").dialog({
+      id: "addPlayerDialog",
       width: 'auto',
       height: 'auto'
     });
@@ -15,6 +16,7 @@ $(function(){
   $("#showEditPlayerDialog").click(function() {
     $("#editPlayerDiv").removeClass("hidden");
     $("#editPlayerDiv").dialog({
+      id: "editPlayerDialog",
       width: 'auto',
       height: 'auto'
     });
@@ -25,4 +27,9 @@ $(function(){
 // find selected option in player edit dialog
 function findSelectedOption(){
   return $('#selectPlayerName').val();
+}
+
+
+function closeDialog(dialogID){
+  $(dialogID).dialog("close");
 }

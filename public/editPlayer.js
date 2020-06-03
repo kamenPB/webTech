@@ -110,11 +110,27 @@ function generateFields(data) {
       editDiv.appendChild(div);
 
 
-      // save button to update database
-
-
       console.log(prop);
       console.log(data[prop]);
     }
   }
+
+  // save button to update database
+  const save = document.createElement("input");
+  save.type = "button";
+  save.id = "editDatabaseButton";
+  save.value = "Save";
+  save.addEventListener("click", saveEditedPlayerToDatabase);
+  editDiv.appendChild(save);
+
+}
+
+
+function saveEditedPlayerToDatabase(){
+  console.log("player saved");
+
+  // update firebase
+
+  // close window (maybe add confirmation)
+  closeDialog("#editPlayerDiv");
 }
