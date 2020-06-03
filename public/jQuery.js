@@ -3,9 +3,19 @@ $(function(){
   $("#showAddPlayerDialog").click(function(){
     $("#addPlayerDiv").removeClass("hidden");
     $("#addPlayerDiv").dialog({
-      dialogClass: "addPlayerDialog",
-      resizable: false,
-      width: 400
+      width: 'auto',
+      height: 'auto'
+    });
+  });
+});
+
+
+// Edit a player dialog
+$(function(){
+  $("#showEditPlayerDialog").click(function(){
+    $("#editPlayerDiv").removeClass("hidden");
+    $("#editPlayerDiv").dialog({
+      //resize: "auto"
     });
   });
 });

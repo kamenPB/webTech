@@ -21,7 +21,7 @@ const prePlayers = document.getElementById("players");
 const ulList = document.getElementById("ulList");
 
 // create references
-const dbRefPlayers = firebase.database().ref().child("players");
+// const dbRefPlayers = firebase.database().ref().child("players");
 
 // sync
 dbRefPlayers.on("value", snap => prePlayers.innerText = JSON.stringify(snap.val(), null, 3));

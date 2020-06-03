@@ -22,13 +22,11 @@
 
     <pre id="players"></pre>
 
-    <form method="post" action="/editPlayer.html">
-        <input type="submit" value="Edit a player" />
-    </form>
 
     <ul id="ulList"></ul>
 
 
+    <!-- ADD A PLAYER FORM -->
     <div id="addPlayerDiv" title="Add a player" class="hidden">
       <form id='addPlayer'>
         <div class="name">
@@ -40,13 +38,22 @@
           <input id='inputAge' type='number' />
         </div>
         <input type='submit' />
-
       </form>
     </div>
 
 
-    <button id="showAddPlayerDialog">Add a player</button>
+    <!-- EDIT A PLAYER FORM -->
+    <div id="editPlayerDiv" title="Edit a player" class="hidden">
+      <p> Select a player: </p>
+      <select id="selectPlayerName"></select>
+    </div>
 
+
+    <button id="showAddPlayerDialog">Add a player</button>
+    <button id="showEditPlayerDialog">Edit a player</button>
+
+
+    <script src="editPlayer.js"></script>
     <script src="addPlayer.js"></script>
     <script src="jQuery.js"></script>
     <script src="fb.js"></script>
