@@ -1,7 +1,12 @@
+// configure firebase if needed
+if (!firebase.apps.length) {
+  firebase.initializeApp(getFirebaseConfig());
+}
+
+
 // get elements
 const prePlayers = document.getElementById("players");
 const ulList = document.getElementById("ulList");
-
 
 // sync
 dbRefPlayers.on("value", snap => {
