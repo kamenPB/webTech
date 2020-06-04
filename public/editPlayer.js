@@ -103,6 +103,11 @@ function generateFields(data, key) {
           inputType = "number";
           numberStep = "0.01";
           break;
+        case "current_price":
+          labelText = "Current Price (£): ";
+          inputType = "number";
+          numberStep = "0.01";
+          break;
         default: labelText = "DEFAULT CASE TRIGGERED";
       }
 
