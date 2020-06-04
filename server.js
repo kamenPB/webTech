@@ -58,6 +58,7 @@ async function handle(request, response) {
     let file = root + url;
     let content = await fs.readFile(file);
     deliver(response, type, content);
+    console.log("delivered: " + file);
 }
 
 // Check if a path is in or can be added to the set of site paths, in order

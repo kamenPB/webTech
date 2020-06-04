@@ -25,6 +25,7 @@ const ulList = document.getElementById("ulList");
 
 // sync
 dbRefPlayers.on("value", snap => prePlayers.innerText = JSON.stringify(snap.val(), null, 3));
+
 dbRefPlayers.on("child_added", snap => {
   const li = document.createElement("li");
   li.innerText = "Name: " + snap.val().name + " Age: " + snap.val().age + " Country: " + snap.val().country
