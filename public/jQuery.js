@@ -30,6 +30,7 @@ function findSelectedOption(){
 }
 
 
+// close a dialog by its ID
 function closeDialog(dialogID){
   $(dialogID).dialog("close");
 }

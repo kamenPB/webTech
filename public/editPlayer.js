@@ -28,14 +28,17 @@ dbRefPlayers.on("child_added", snap => {
   const option = document.createElement("option");
   option.innerText = snap.val().name;
   option.id = snap.key;
+  //console.log(option.id);
   selectPlayerName.appendChild(option);
 });
 
+// for each player
 dbRefPlayers.on("child_changed", snap => {
   const optionChanged = document.getElementById(snap.key);
   optionChanged.innerText = snap.val().name;
 });
 
+// for each player
 dbRefPlayers.on("child_removed", snap => {
   const optionToRemove = document.getElementById(snap.key);
   optionToRemove.remove();
@@ -48,17 +51,16 @@ function selectionChange() {
   var selectedOption = findSelectedOption();
 
   //console.log(selectedOption);
-  var c = 0;
   dbRefPlayers.on("value", snap => {
       snap.forEach(childSnap => {
         var childData = childSnap.val();
-        c++;
+        var childKey = childSnap.key;
 
         if(childData.name == selectedOption){
           console.log(childData);
-          console.log(c);
+          console.log(childKey);
 
-          generateFields(childData);
+          generateFields(childData, childKey);
 
         }
       });
@@ -66,7 +68,7 @@ function selectionChange() {
 }
 
 
-function generateFields(data) {
+function generateFields(data, key) {
 
   // get the editable div from index and clean it
   const editDiv = document.getElementById("editableDiv");
@@ -105,6 +107,7 @@ function generateFields(data) {
       const input = document.createElement("input");
       input.type = inputType;
       input.defaultValue = data[prop];
+      input.id = prop;
       div.appendChild(input);
 
       editDiv.appendChild(div);
@@ -120,16 +123,45 @@ function generateFields(data) {
   save.type = "button";
   save.id = "editDatabaseButton";
   save.value = "Save";
-  save.addEventListener("click", saveEditedPlayerToDatabase);
+  save.addEventListener("click", function(){
+    saveEditedPlayerToDatabase(data, key);
+  }, false);
   editDiv.appendChild(save);
 
 }
 
 
-function saveEditedPlayerToDatabase(){
-  console.log("player saved");
+function saveEditedPlayerToDatabase(data, key){
+
+  console.log(data);
+
+  const dbRefPlayers = firebase.database().ref().child("players");
 
   // update firebase
+  // go through all input types and update them in firebase
+  for (var prop in data) {
+    // data save as strings
+    data[prop] = document.getElementById(prop).value;
+  }
+
+
+
+  // push updated
+  console.log(data);
+  console.log(key);
+
+  // remove old player
+  dbRefPlayers.child(key).remove();
+  // push new player (at the bottom)
+  dbRefPlayers.push().set(data);
+  // change selected element to default
+  var defaultOption = document.getElementById("defaultOption");
+  defaultOption.selected = true;
+  // clear editableDiv
+  const editDiv = document.getElementById("editableDiv");
+  editDiv.innerHTML = '';
+
+  console.log("player saved");
 
   // close window (maybe add confirmation)
   closeDialog("#editPlayerDiv");
