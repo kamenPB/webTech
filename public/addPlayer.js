@@ -6,6 +6,8 @@ const form = document.querySelector('#addPlayer');
 //grab an input
 const inputName = form.querySelector('#inputName');
 const inputAge = form.querySelector('#inputAge');
+var inputCountry = findSelectedOption('#countrySelector');
+
 
 
 //config your firebase push
@@ -22,32 +24,45 @@ const firebaseConfig = {
 
 
 //create a functions to push
-    function firebasePush(name, age) {
+function firebasePush(name, age, country) {
 
 
-        //prevents from braking
-        if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-        }
-
-        //push itself
-        var playersRef = firebase.database().ref('players').push().set(
-            {
-                // not great to do these 1 by 1
-                name: name,
-                age: age
-            }
-        );
-
+    //prevents from braking
+    if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
     }
+
+    //push itself
+    var playersRef = firebase.database().ref('players').push().set(
+        {
+            // not great to do these 1 by 1
+            name: name,
+            age: age,
+            country: country
+        }
+    );
+
+}
 
 //push on form submit
-    if (form) {
-        form.addEventListener('submit', function (evt) {
-            evt.preventDefault();
-            firebasePush(inputName.value, inputAge.value);
+if (form) {
+    form.addEventListener('submit', function (evt) {
+        evt.preventDefault();
+        firebasePush(inputName.value, inputAge.value, inputCountry);
 
-            //shows alert if everything went well.
-            return alert('Data Successfully Sent to Realtime Database');
-        })
-    }
+        // close dialog
+        closeDialog("#addPlayerDiv");
+
+        //shows alert if everything went well.
+        return alert('Data Successfully Sent to Realtime Database');
+    })
+}
+
+
+
+function countrySelectionChange(){
+  var selectedOption = findSelectedOption('#countrySelector');
+  inputCountry = selectedOption;
+  //console.log(selectedOption);
+  //console.log(inputCountry);
+}

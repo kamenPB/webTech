@@ -25,8 +25,8 @@ $(function(){
 
 
 // find selected option in player edit dialog
-function findSelectedOption(){
-  return $('#selectPlayerName').val();
+function findSelectedOption(id){
+  return $(id).val();
 }
 
 
@@ -34,3 +34,7 @@ function findSelectedOption(){
 function closeDialog(dialogID){
   $(dialogID).dialog("close");
 }
+
+
+// initialize country selector when adding players
+$("#countrySelector").countrySelector();

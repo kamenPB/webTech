@@ -11,7 +11,7 @@ if (!firebase.apps.length) {
   };
   firebase.initializeApp(firebaseConfig);
 
-  console.log("firebase initialized");
+  //console.log("firebase initialized");
 }
 
 
@@ -48,7 +48,7 @@ dbRefPlayers.on("child_removed", snap => {
 
 // log name of every child of players
 function selectionChange() {
-  var selectedOption = findSelectedOption();
+  var selectedOption = findSelectedOption('#selectPlayerName');
 
   //console.log(selectedOption);
   dbRefPlayers.on("value", snap => {
@@ -57,8 +57,8 @@ function selectionChange() {
         var childKey = childSnap.key;
 
         if(childData.name == selectedOption){
-          console.log(childData);
-          console.log(childKey);
+          //console.log(childData);
+          //console.log(childKey);
 
           generateFields(childData, childKey);
 
@@ -93,6 +93,10 @@ function generateFields(data, key) {
           labelText = "Age: ";
           inputType = "number";
           break;
+        case "country":
+          labelText = "Country: ";
+          inputType = "text";
+          break;
         default: labelText = "DEFAULT CASE TRIGGERED";
       }
 
@@ -113,8 +117,8 @@ function generateFields(data, key) {
       editDiv.appendChild(div);
 
 
-      console.log(prop);
-      console.log(data[prop]);
+      //console.log(prop);
+      //console.log(data[prop]);
     }
   }
 
@@ -133,7 +137,7 @@ function generateFields(data, key) {
 
 function saveEditedPlayerToDatabase(data, key){
 
-  console.log(data);
+  //console.log(data);
 
   const dbRefPlayers = firebase.database().ref().child("players");
 
@@ -147,8 +151,8 @@ function saveEditedPlayerToDatabase(data, key){
 
 
   // push updated
-  console.log(data);
-  console.log(key);
+  //console.log(data);
+  //console.log(key);
 
   // remove old player
   dbRefPlayers.child(key).remove();
@@ -161,8 +165,8 @@ function saveEditedPlayerToDatabase(data, key){
   const editDiv = document.getElementById("editableDiv");
   editDiv.innerHTML = '';
 
-  console.log("player saved");
 
   // close window (maybe add confirmation)
   closeDialog("#editPlayerDiv");
+  alert("player saved");
 }
