@@ -98,6 +98,11 @@ function generateFields(data, key) {
           labelText = "Country: ";
           inputType = "text";
           break;
+        case "buy_price":
+          labelText = "Buy Price (£): ";
+          inputType = "number";
+          numberStep = "0.01";
+          break;
         default: labelText = "DEFAULT CASE TRIGGERED";
       }
 
