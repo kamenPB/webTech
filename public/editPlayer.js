@@ -84,6 +84,7 @@ function generateFields(data, key) {
       // create label for a property
       var labelText;
       var inputType;
+      var numberStep = 1;
       switch (prop) {
         case "name":
           labelText = "Full name: ";
@@ -110,6 +111,9 @@ function generateFields(data, key) {
 
       const input = document.createElement("input");
       input.type = inputType;
+      if(inputType == "number"){
+        input.step = numberStep;
+      }
       input.defaultValue = data[prop];
       input.id = prop;
       div.appendChild(input);
