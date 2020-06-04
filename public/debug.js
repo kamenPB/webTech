@@ -24,7 +24,11 @@ const ulList = document.getElementById("ulList");
 // const dbRefPlayers = firebase.database().ref().child("players");
 
 // sync
-dbRefPlayers.on("value", snap => prePlayers.innerText = JSON.stringify(snap.val(), null, 3));
+dbRefPlayers.on("value", snap => {
+  prePlayers.innerText = JSON.stringify(snap.val(), null, 3);
+  jsonData = prePlayers.innerText;
+  console.log(jsonData);
+});
 
 dbRefPlayers.on("child_added", snap => {
   const li = document.createElement("li");
