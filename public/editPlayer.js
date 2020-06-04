@@ -134,7 +134,6 @@ function generateFields(data, key) {
 
       editDiv.appendChild(div);
 
-
       //console.log(prop);
       //console.log(data[prop]);
     }
@@ -148,6 +147,7 @@ function generateFields(data, key) {
   save.addEventListener("click", function(){
     saveEditedPlayerToDatabase(data, key);
   }, false);
+  editDiv.appendChild(hr.cloneNode(true));
   editDiv.appendChild(save);
 
 }
