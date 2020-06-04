@@ -84,7 +84,7 @@ function generateFields(data, key) {
       // create label for a property
       var labelText;
       var inputType;
-      var numberStep = 1;
+      var numberStep = 1; // default step is 1
       switch (prop) {
         case "name":
           labelText = "Full name: ";
@@ -101,12 +101,16 @@ function generateFields(data, key) {
         case "buy_price":
           labelText = "Buy Price (£): ";
           inputType = "number";
-          numberStep = "0.01";
+          numberStep = 0.01;
           break;
         case "current_price":
           labelText = "Current Price (£): ";
           inputType = "number";
-          numberStep = "0.01";
+          numberStep = 0.01;
+          break;
+        case "shares":
+          labelText = "Shares: ";
+          inputType = "number";
           break;
         default: labelText = "DEFAULT CASE TRIGGERED";
       }

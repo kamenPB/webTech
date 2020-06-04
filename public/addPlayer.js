@@ -9,6 +9,7 @@ const inputAge = form.querySelector('#inputAge');
 var inputCountry = findSelectedOption('#countrySelector');
 const inputBuyPrice = form.querySelector('#inputBuyPrice');
 const inputCurrentPrice = form.querySelector('#inputCurrentPrice');
+const inputShares = form.querySelector('#inputShares');
 
 
 
@@ -26,7 +27,7 @@ const firebaseConfig = {
 
 
 //create a functions to push
-function firebasePush(name, age, country, buy_price, current_price) {
+function firebasePush(name, age, country, buy_price, current_price, shares) {
 
 
     //prevents from braking
@@ -42,7 +43,8 @@ function firebasePush(name, age, country, buy_price, current_price) {
             age: age,
             country: country,
             buy_price: buy_price,
-            current_price: current_price
+            current_price: current_price,
+            shares: shares
         }
     );
 
@@ -54,7 +56,7 @@ if (form) {
         evt.preventDefault();
 
         firebasePush(inputName.value, inputAge.value, inputCountry,
-                     inputBuyPrice.value, inputCurrentPrice.value);
+                     inputBuyPrice.value, inputCurrentPrice.value, inputShares.value);
 
         // close dialog
         closeDialog("#addPlayerDiv");
