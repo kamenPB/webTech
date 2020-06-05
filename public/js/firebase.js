@@ -15,4 +15,5 @@ function getFirebaseConfig(){
 
 firebase.initializeApp(getFirebaseConfig());
 
+// global reference to all players
 const dbRefPlayers = firebase.database().ref().child("players");
