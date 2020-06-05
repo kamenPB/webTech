@@ -21,7 +21,7 @@ dbRefPlayers.on("child_added", snap => {
   // classList not supported in Internet Explorer 9
   // tr.classList.add("dynamicRow");
   // so use jQuery
-  $(tr).addClass("dynamicRow");
+  $(tr).addClass("generatedRow");
 
   table.appendChild(tr);
 });

@@ -29,10 +29,10 @@ td {
   text-align: center;
 }
 
-tr.dynamicRow {
+tr.generatedRow {
   background-color: grey;
 }
 
-tr.dynamicRow:hover {
+tr.generatedRow:hover {
   background-color: pink !important;
 }
