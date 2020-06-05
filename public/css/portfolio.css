@@ -7,6 +7,7 @@ div#container {
 
 table#tableAllPlayers {
   width: 100%;
+  table-layout: fixed;
 }
 
 td {
@@ -22,4 +23,6 @@ tr.generatedRow {
 
 tr.generatedRow:hover {
   background-color: pink !important;
+  font-weight: bold;
+  font-size: 20px;
 }
