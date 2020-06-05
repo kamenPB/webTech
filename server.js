@@ -12,7 +12,7 @@
 
 // Change the port to the default 80, if there are no permission issues and port
 // 80 isn't already in use. The root folder corresponds to the "/" url.
-let port = 8080;
+let port = 4080;
 let root = "./public"
 
 // Load the library modules, and define the global constants and variables.
@@ -39,7 +39,10 @@ async function start() {
         paths = new Set();
         paths.add("/");
         let service = http.createServer(handle);
+
         service.listen(port, "localhost");
+
+
         let address = "http://localhost";
         if (port != 80) address = address + ":" + port;
         console.log("Server running at", address);

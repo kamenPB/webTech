@@ -1,3 +1,9 @@
+// disable form resubmittion warning alert on browser refresh
+if ( window.history.replaceState ) {
+ window.history.replaceState( null, null, window.location.href );
+}
+
+// configure firebase
 const firebaseConfig = {
   apiKey: "AIzaSyAfDJD1TpKyk5dJ_H8xFDqdDoBOGvfz3y4",
   authDomain: "footballindexapp.firebaseapp.com",
@@ -9,10 +15,12 @@ const firebaseConfig = {
   measurementId: "G-J156R60Q25"
 };
 
+// config getter
 function getFirebaseConfig(){
     return firebaseConfig;
 }
 
+// initialize firebase
 firebase.initializeApp(getFirebaseConfig());
 
 // global reference to all players
