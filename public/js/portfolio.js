@@ -18,6 +18,11 @@ dbRefPlayers.on("child_added", snap => {
 
   tr.id = snap.key;
 
+  // classList not supported in Internet Explorer 9
+  // tr.classList.add("dynamicRow");
+  // so use jQuery
+  $(tr).addClass("dynamicRow");
+
   table.appendChild(tr);
 });
 
