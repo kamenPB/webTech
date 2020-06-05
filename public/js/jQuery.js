@@ -1,3 +1,5 @@
+// ============= INDEX =========================
+
 // Add a player dialog
 $(function(){
   $("#showAddPlayerDialog").click(function(){
@@ -38,3 +40,7 @@ function closeDialog(dialogID){
 
 // initialize country selector when adding players
 $("#countrySelector").countrySelector();
+
+
+
+// ===================== PORTFOLIO ======================
