@@ -6,6 +6,7 @@ dbRefPlayers.on("child_added", snap => {
   const tr = document.createElement("tr");
 
   var data = snap.val();
+  var playerKey = snap.key;
 
   var tdName = document.createElement("td");
   tdName.innerText = data.name;
@@ -13,7 +14,8 @@ dbRefPlayers.on("child_added", snap => {
 
   var tdAge = document.createElement("td");
   tdAge.innerText = data.age;
-  tdAge.id = (snap.key).toString() + "age";
+  // set ID to be playerKey concatinated with age so it is unique
+  tdAge.id = (playerKey).toString() + "age";
   tr.appendChild(tdAge);
 
   var tdCountry = document.createElement("td");
