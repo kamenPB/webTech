@@ -13,6 +13,7 @@ dbRefPlayers.on("child_added", snap => {
 
   var tdAge = document.createElement("td");
   tdAge.innerText = data.age;
+  tdAge.id = (snap.key).toString() + "age";
   tr.appendChild(tdAge);
 
   var tdCountry = document.createElement("td");
