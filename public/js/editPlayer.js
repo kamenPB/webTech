@@ -93,6 +93,11 @@ function generateFields(data, key) {
           labelText = "Shares: ";
           inputType = "number";
           break;
+        case "dividends":
+          labelText = "Dividends: ";
+          inputType = "number";
+          numberStep = 0.01;
+          break;
         default: labelText = "DEFAULT CASE TRIGGERED";
       }
 
