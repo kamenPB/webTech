@@ -153,11 +153,7 @@ function saveEditedPlayerToDatabase(data, key){
   }
 
 
-
-  // push updated
-  //console.log(data);
-  //console.log(key);
-
+  // bad 
   // remove old player
   dbRefPlayers.child(key).remove();
   // push new player (at the bottom)

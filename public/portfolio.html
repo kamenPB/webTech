@@ -23,9 +23,9 @@
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="css/portfolio.css"></link>
 
-    <!-- COUNTRY SELECTOR PLUGIN
-    <link href="jquery-countrySelector.min.css" rel="stylesheet"></link>
-    <script src="jquery.countrySelector.js"></script> -->
+    <!-- COUNTRY SELECTOR PLUGIN -->
+    <link href="plugins/jquery-countrySelector.min.css" rel="stylesheet"></link>
+    <script src="plugins/jquery.countrySelector.js"></script>
 
   </head>
 
@@ -35,9 +35,10 @@
   <body>
 
 
-    <pre id="players"></pre>
+    <button id="showAddPlayerDialog">Add a player</button>
+    <button id="showEditPlayerDialog">Edit a player</button>
+    <hr></hr>
 
-    <ul id="ulList"></ul>
 
     <div id="container">
       <table id="tableAllPlayers">
@@ -55,6 +56,60 @@
       </table>
     </div>
 
+
+
+    <!-- ADD A PLAYER FORM -->
+    <div id="addPlayerDiv" title="Add a player" class="hidden">
+      <form id='addPlayer'>
+        <div class="name">
+          <label for="inputName">Full name: </label>
+          <input id='inputName' type='text' />
+        </div>
+        <div class="age">
+          <label for="inputAge">Age: </label>
+          <input id='inputAge' type='number' value="15"/>
+        </div>
+        <div class="country">
+          <label for="countrySelector">Country: </label>
+          <select id="countrySelector" onchange="countrySelectionChange()"></select>
+        </div>
+        <div class="buy_price">
+          <label for="inputBuyPrice">Buy Price (£): </label>
+          <input id='inputBuyPrice' type='number' value="2" step="0.01"/>
+        </div>
+        <div class="current_price">
+          <label for="inputCurrentPrice">Current Price (£): </label>
+          <input id='inputCurrentPrice' type='number' value="2" step="0.01"/>
+        </div>
+        <div class="shares">
+          <label for="inputShares">Shares: </label>
+          <input id='inputShares' type='number' value="1"/>
+        </div>
+        <div class="dividends">
+          <label for="inputDividends">Dividends: </label>
+          <input id='inputDividends' type='number' step="0.01"/>
+        </div>
+
+        <hr></hr>
+
+        <input type='submit' />
+      </form>
+    </div>
+
+
+    <!-- EDIT A PLAYER FORM -->
+    <div id="editPlayerDiv" title="Edit a player" class="hidden">
+      <label> Select a player: </label>
+      <select id="selectPlayerName" onchange="selectionChange()">
+        <!-- default option -->
+        <option id="defaultOption" selected="true" disabled="disabled">-- Select a player --</option>
+      </select>
+      <div id="editableDiv"></div>
+    </div>
+
+
+
+    <hr></hr>
     <form method="post" action="/index.html">
       <button type="submit">Back to home page</button>
     </form>
@@ -65,7 +120,11 @@
 
 
   <script src="js/preload.js"></script>
+  <script src="js/jQuery.js"></script>
+  <script src="js/editPlayer.js"></script>
+  <script src="js/addPlayer.js"></script>
   <script src="js/portfolio.js"></script>
+
 
 
 </html>
