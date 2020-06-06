@@ -15,13 +15,27 @@ const firebaseConfig = {
   measurementId: "G-J156R60Q25"
 };
 
-// config getter
-function getFirebaseConfig(){
-    return firebaseConfig;
-}
-
 // initialize firebase
 firebase.initializeApp(getFirebaseConfig());
 
 // global reference to all players
 const dbRefPlayers = firebase.database().ref().child("players");
+
+// getters
+function getFirebaseConfig(){
+    return firebaseConfig;
+}
+
+function getLowestAge(){
+  var lowestAge = 100; // some high number
+  dbRefPlayers.on("value", snap => {
+    //console.log(snap.val());
+    snap.forEach(childSnap => {
+      var playerAge = childSnap.val().age;
+      if(playerAge < lowestAge){
+        lowestAge = playerAge;
+      }
+    });
+  });
+  return lowestAge;
+}

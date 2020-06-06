@@ -13,11 +13,6 @@ dbRefPlayers.on("child_added", snap => {
   selectPlayerName.appendChild(option);
 });
 
-// for each player
-dbRefPlayers.on("child_changed", snap => {
-  const optionChanged = document.getElementById(snap.key);
-  optionChanged.innerText = snap.val().name;
-});
 
 // for each player
 dbRefPlayers.on("child_removed", snap => {
@@ -153,7 +148,7 @@ function saveEditedPlayerToDatabase(data, key){
   }
 
 
-  // bad 
+  // bad
   // remove old player
   dbRefPlayers.child(key).remove();
   // push new player (at the bottom)
