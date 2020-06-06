@@ -21,6 +21,11 @@ firebase.initializeApp(getFirebaseConfig());
 // global reference to all players
 const dbRefPlayers = firebase.database().ref().child("players");
 
+// helper functions
+function fixed2(n){
+  return (Math.round( n * 100 + Number.EPSILON ) / 100).toFixed(2);
+}
+
 // getters
 function getFirebaseConfig(){
     return firebaseConfig;
@@ -38,4 +43,26 @@ function getLowestAge(){
     });
   });
   return lowestAge;
+}
+
+function getPortfolioValue(){
+  var value = 0;
+  dbRefPlayers.on("value", snap => {
+    snap.forEach(childSnap => {
+      var pValue = fixed2((childSnap.val().current_price) * childSnap.val().shares);
+      value += Number(pValue);
+    });
+  });
+  return value;
+}
+
+function getPortfolioCost(){
+  var cost = 0;
+  dbRefPlayers.on("value", snap => {
+    snap.forEach(childSnap => {
+      var pCost = fixed2((childSnap.val().buy_price) * childSnap.val().shares);
+      cost += Number(pCost);
+    });
+  });
+  return cost;
 }

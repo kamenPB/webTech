@@ -40,6 +40,7 @@ dbRefPlayers.on("child_added", snap => {
   var tdCurrentPrice = document.createElement("td");
   var value = fixed2(data.current_price * data.shares);
   tdCurrentPrice.innerText = "£" + fixed2(data.current_price) + " (£" + value + ")";
+  tdCurrentPrice.id = (playerKey).toString() + "value";
   tr.appendChild(tdCurrentPrice);
 
   var tdCommission = document.createElement("td");
@@ -78,8 +79,3 @@ dbRefPlayers.on("child_removed", snap => {
   const trToRemove = document.getElementById(snap.key);
   trToRemove.parentNode.removeChild(trToRemove);
 });
-
-
-function fixed2(n){
-  return (Math.round( n * 100 + Number.EPSILON ) / 100).toFixed(2)
-}

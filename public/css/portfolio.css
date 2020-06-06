@@ -38,10 +38,10 @@ tr.generatedRow:hover {
   font-size: 20px;
 }
 
-.youngPlayers, .positiveProfit {
+.youngPlayers, .positiveProfit, .underboughtPlayer {
   background-color: #99ffdd; // light green
 }
 
-.oldPlayers, .negativeProfit {
+.oldPlayers, .negativeProfit, .overboughtPlayer {
   background-color: #ff4d4d; // light red
 }
