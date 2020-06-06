@@ -49,6 +49,7 @@ dbRefPlayers.on("child_added", snap => {
 
   var tdProfit = document.createElement("td");
   var profit = fixed2(Number(value) + Number(dividends) - Number(cost) - Number(comm));
+  tdProfit.id = (playerKey).toString() + "profit";
   tdProfit.innerText = "£" + profit;
   tr.appendChild(tdProfit);
 
@@ -60,6 +61,16 @@ dbRefPlayers.on("child_added", snap => {
   $(tr).addClass("generatedRow");
 
   table.appendChild(tr);
+
+
+  // add appropriate class to tdProfit after row is generated
+  var profitID = "#" + tdProfit.id;
+  if(profit > 0) {
+    $(profitID).addClass("positiveProfit");
+  } else {
+    $(profitID).addClass("negativeProfit");
+  }
+
 });
 
 // update on remove

@@ -38,6 +38,10 @@ tr.generatedRow:hover {
   font-size: 20px;
 }
 
-.youngPlayers {
-  background-color: #99ffdd;
+.youngPlayers, .positiveProfit {
+  background-color: #99ffdd; // light green
+}
+
+.oldPlayers, .negativeProfit {
+  background-color: #ff4d4d; // light red
 }

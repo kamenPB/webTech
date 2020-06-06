@@ -18,7 +18,7 @@ function firebasePush(name, age, country, buy_price, current_price, shares, divi
 
 
     //push itself
-    var playersRef = firebase.database().ref('players').push().set(
+    dbRefPlayers.push().set(
         {
             // not great to do these 1 by 1
             name: name,
