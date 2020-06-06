@@ -64,31 +64,31 @@
       <form id='addPlayer'>
         <div class="name">
           <label for="inputName">Full name: </label>
-          <input id='inputName' onclick="this.select()" type='text' />
+          <input id='inputName' onclick="this.select()" type='text' required="true"/>
         </div>
         <div class="age">
           <label for="inputAge">Age: </label>
-          <input id='inputAge' onclick="this.select()" type='number' value="15" min="1"/>
+          <input id='inputAge' onclick="this.select()" type='number' value="15" min="1" required="true"/>
         </div>
         <div class="country">
           <label for="countrySelector">Country: </label>
-          <select id="countrySelector" onchange="countrySelectionChange()"></select>
+          <select id="countrySelector" onchange="countrySelectionChange()" required="true"></select>
         </div>
         <div class="buy_price">
           <label for="inputBuyPrice">Buy Price (£): </label>
-          <input id='inputBuyPrice' onclick="this.select()" type='number' value="2" step="0.01" min="0"/>
+          <input id='inputBuyPrice' onclick="this.select()" type='number' value="2" step="0.01" min="0" required="true"/>
         </div>
         <div class="current_price">
           <label for="inputCurrentPrice">Current Price (£): </label>
-          <input id='inputCurrentPrice' onclick="this.select()" type='number' value="2" step="0.01" min="0"/>
+          <input id='inputCurrentPrice' onclick="this.select()" type='number' value="2" step="0.01" min="0" required="true"/>
         </div>
         <div class="shares">
           <label for="inputShares">Shares: </label>
-          <input id='inputShares' onclick="this.select()" type='number' value="1" min="1"/>
+          <input id='inputShares' onclick="this.select()" type='number' value="1" min="1" required="true"/>
         </div>
         <div class="dividends">
           <label for="inputDividends">Dividends (£): </label>
-          <input id='inputDividends' onclick="this.select()" type='number' value="0" step="0.01" min="0"/>
+          <input id='inputDividends' onclick="this.select()" type='number' value="0" step="0.01" min="0" required="true"/>
         </div>
 
         <hr></hr>

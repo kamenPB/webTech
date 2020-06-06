@@ -61,7 +61,6 @@ function generateFields(data, key) {
       var labelText;
       var inputType;
       var numberStep = 1; // default step is 1
-      var inputMin = 0;
 
       switch (prop) {
         case "name":
@@ -71,7 +70,6 @@ function generateFields(data, key) {
         case "age":
           labelText = "Age: ";
           inputType = "number";
-          inputMin = 1;
           break;
         case "country":
           labelText = "Country: ";
@@ -90,7 +88,6 @@ function generateFields(data, key) {
         case "shares":
           labelText = "Shares: ";
           inputType = "number";
-          inputMin = 1;
           break;
         case "dividends":
           labelText = "Dividends: ";
@@ -110,11 +107,12 @@ function generateFields(data, key) {
 
       const input = document.createElement("input");
       input.type = inputType;
-      if(inputType == "number"){
-        input.step = numberStep;
-        input.min = inputMin;
-      }
       input.defaultValue = data[prop];
+      if(inputType == "number" && prop != "shares" && prop != "age"){
+        input.step = numberStep;
+        input.defaultValue = fixed2(data[prop]);
+      }
+
       input.id = prop;
       div.appendChild(input);
 
@@ -144,13 +142,39 @@ function generateFields(data, key) {
 
 function saveEditedPlayerToDatabase(data, key){
 
+  // perform data checks here
   //console.log(data);
+  var errorText = "";
+  for (var prop in data) {
+    if (prop == "age" || prop == "shares") {
+      var postiveInt = Number(document.getElementById(prop).value);
+      if(postiveInt < 1 || !Number.isInteger(postiveInt)) {
+        errorText += "\n wrong " + prop + " input;";
+      }
+    }
+    if (prop == "buy_price" || prop == "dividends" || prop == "current_price") {
+      var price = Number(document.getElementById(prop).value);
+      if(price < 0 || countDecimals(price) > 2) {
+        errorText += "\n wrong " + prop + " input";
+      }
+    }
+    if (prop == "name" || prop == "country") {
+      var string = document.getElementById(prop).value;
+      if(string == "") { // add other conditions
+        errorText += "\n wrong " + prop + " input";
+      }
+    }
+  }
 
-  const dbRefPlayers = firebase.database().ref().child("players");
+  if(errorText != "") {
+    alert(errorText);
+    return;
+  }
 
   // update firebase
   // go through all input types and update them in firebase
   for (var prop in data) {
+
     // data save as strings
     data[prop] = document.getElementById(prop).value;
   }
@@ -172,4 +196,12 @@ function saveEditedPlayerToDatabase(data, key){
   // close window (maybe add confirmation)
   closeDialog("#editPlayerDiv");
   alert("player saved");
+}
+
+
+
+function countDecimals(value) {
+  if (Math.floor(value) !== value)
+      return value.toString().split(".")[1].length || 0;
+  return 0;
 }
