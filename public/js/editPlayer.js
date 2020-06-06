@@ -115,6 +115,9 @@ function generateFields(data, key) {
 
       editDiv.appendChild(div);
 
+      // add an onclick event to ctrl+a 
+      document.getElementById(input.id).onclick = function(){input.select()};
+
       //console.log(prop);
       //console.log(data[prop]);
     }
