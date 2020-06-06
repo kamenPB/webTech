@@ -25,20 +25,20 @@ function toggleFactors(){
 
         if(pAge <= thresholdYoungAge){
           // jquery to add class youngPlayers
-          $(pID).addClass("youngPlayers");
+          addClass(pID, "youngPlayers");
         }
         if(pAge >= thresholdOldAge){
           // jquery to add class oldPlayers
-          $(pID).addClass("oldPlayers");
+          addClass(pID, "oldPlayers");
         }
 
         // ========= VALUE =======================
         pID = "#" + (childSnap.key).toString() + "value";
         if(pValue > getPortfolioValue() * thresholdValueOverbought){
-          $(pID).addClass("overboughtPlayer");
+          addClass(pID, "overboughtPlayer");
         }
         if(pValue > getPortfolioValue() * thresholdValueUnderbought){
-          $(pID).addClass("underboughtPlayer");
+          addClass(pID, "underboughtPlayer");
         }
 
       });
@@ -48,7 +48,7 @@ function toggleFactors(){
 
       // generate report
       // TODO
-      
+
     });
 
   } else {
@@ -59,11 +59,12 @@ function toggleFactors(){
       snap.forEach(childSnap => {
 
         var pID = "#" + (childSnap.key).toString() + "age";
-        $(pID).removeClass("youngPlayers");
-        $(pID).removeClass("oldPlayers");
+        // jQuery
+        removeClass(pID, "youngPlayers");
+        removeClass(pID, "oldPlayers");
         pID = "#" + (childSnap.key).toString() + "value";
-        $(pID).removeClass("overboughtPlayer");
-        $(pID).removeClass("underboughtPlayer");
+        removeClass(pID, "overboughtPlayer");
+        removeClass(pID, "underboughtPlayer");
       });
     });
 

@@ -37,6 +37,17 @@ function closeDialog(dialogID){
   $(dialogID).dialog("close");
 }
 
+// remove a class
+function removeClass(id, classr){
+  $(id).removeClass(classr);
+}
+
+// add a class
+function addClass(id, classa){
+  $(id).addClass(classa);
+}
+
+
 
 // initialize country selector when adding players
 $("#countrySelector").countrySelector();

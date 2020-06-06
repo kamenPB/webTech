@@ -59,7 +59,7 @@ dbRefPlayers.on("child_added", snap => {
   // classList not supported in Internet Explorer 9
   // tr.classList.add("dynamicRow");
   // so use jQuery
-  $(tr).addClass("generatedRow");
+  addClass(tr, "generatedRow");
 
   table.appendChild(tr);
 
@@ -67,9 +67,9 @@ dbRefPlayers.on("child_added", snap => {
   // add appropriate class to tdProfit after row is generated
   var profitID = "#" + tdProfit.id;
   if(profit > 0) {
-    $(profitID).addClass("positiveProfit");
+    addClass(profitID, "positiveProfit");
   } else {
-    $(profitID).addClass("negativeProfit");
+    addClass(profitID, "negativeProfit");
   }
 
 });
