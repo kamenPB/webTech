@@ -61,6 +61,8 @@ function generateFields(data, key) {
       var labelText;
       var inputType;
       var numberStep = 1; // default step is 1
+      var inputMin = 0;
+
       switch (prop) {
         case "name":
           labelText = "Full name: ";
@@ -69,6 +71,7 @@ function generateFields(data, key) {
         case "age":
           labelText = "Age: ";
           inputType = "number";
+          inputMin = 1;
           break;
         case "country":
           labelText = "Country: ";
@@ -87,6 +90,7 @@ function generateFields(data, key) {
         case "shares":
           labelText = "Shares: ";
           inputType = "number";
+          inputMin = 1;
           break;
         case "dividends":
           labelText = "Dividends: ";
@@ -108,6 +112,7 @@ function generateFields(data, key) {
       input.type = inputType;
       if(inputType == "number"){
         input.step = numberStep;
+        input.min = inputMin;
       }
       input.defaultValue = data[prop];
       input.id = prop;
@@ -115,7 +120,7 @@ function generateFields(data, key) {
 
       editDiv.appendChild(div);
 
-      // add an onclick event to ctrl+a 
+      // add an onclick event to ctrl+a
       document.getElementById(input.id).onclick = function(){input.select()};
 
       //console.log(prop);
