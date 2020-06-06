@@ -31,12 +31,12 @@ dbRefPlayers.on("child_added", snap => {
   // add a span element inside td + a class if I want to include css for the value and cost
   var tdBuyPrice = document.createElement("td");
   var cost = fixed2(data.buy_price * data.shares);
-  tdBuyPrice.innerText = "£" + data.buy_price + " (£" + cost + ")";
+  tdBuyPrice.innerText = "£" + fixed2(data.buy_price) + " (£" + cost + ")";
   tr.appendChild(tdBuyPrice);
 
   var tdCurrentPrice = document.createElement("td");
   var value = fixed2(data.current_price * data.shares);
-  tdCurrentPrice.innerText = "£" + data.current_price + " (£" + value + ")";
+  tdCurrentPrice.innerText = "£" + fixed2(data.current_price) + " (£" + value + ")";
   tr.appendChild(tdCurrentPrice);
 
   var tdCommission = document.createElement("td");
