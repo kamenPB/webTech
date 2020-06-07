@@ -37,7 +37,7 @@ function toggleFactors(){
         if(pValue > getPortfolioValue() * thresholdValueOverbought){
           addClass(pID, "overboughtPlayer");
         }
-        if(pValue > getPortfolioValue() * thresholdValueUnderbought){
+        if(pValue < getPortfolioValue() * thresholdValueUnderbought){
           addClass(pID, "underboughtPlayer");
         }
 
