@@ -38,12 +38,12 @@
     <button id="showAddPlayerDialog">Add a player</button>
     <button id="showEditPlayerDialog">Edit a player</button>
     <button id="toggleFactors" onclick="toggleFactors()">Toggle Factors</button>
-    <hr></hr>
+    <hr class="mainHR"></hr>
 
 
     <div id="container">
       <table id="tableAllPlayers">
-        <tr>
+        <tr class="topRow">
           <td>Name</td>
           <td>Age</td>
           <td>Country</td>
@@ -62,38 +62,42 @@
     <!-- ADD A PLAYER FORM -->
     <div id="addPlayerDiv" title="Add a player" class="hidden">
       <form id='addPlayer'>
-        <div class="name">
-          <label for="inputName">Full name: </label>
-          <input id='inputName' onclick="this.select()" type='text' required="true"/>
+
+        <div class="row">
+          <div class="labels"><label for="inputName">Full name: </label></div>
+          <div class="values"><input id='inputName' onclick="this.select()" type='text' required="true"/></div>
         </div>
-        <div class="age">
-          <label for="inputAge">Age: </label>
-          <input id='inputAge' onclick="this.select()" type='number' value="15" min="1" required="true"/>
+        <div class="row">
+          <div class="labels"><label for="inputAge">Age: </label></div>
+          <div class="values"><input id='inputAge' onclick="this.select()" type='number' value="15" min="1" required="true"/></div>
         </div>
-        <div class="country">
-          <label for="countrySelector">Country: </label>
-          <select id="countrySelector" onchange="countrySelectionChange()" required="true"></select>
+        <div class="row">
+          <div class="labels"><label for="countrySelector">Country: </label></div>
+          <div class="values"><select id="countrySelector" onchange="countrySelectionChange()" required="true"></select></div>
         </div>
-        <div class="buy_price">
-          <label for="inputBuyPrice">Buy Price (£): </label>
-          <input id='inputBuyPrice' onclick="this.select()" type='number' value="2" step="0.01" min="0" required="true"/>
+        <div class="row">
+          <div class="labels"><label for="inputBuyPrice">Buy Price (£): </label></div>
+          <div class="values"><input id='inputBuyPrice' onclick="this.select()" type='number' value="2" step="0.01" min="0" required="true"/></div>
         </div>
-        <div class="current_price">
-          <label for="inputCurrentPrice">Current Price (£): </label>
-          <input id='inputCurrentPrice' onclick="this.select()" type='number' value="2" step="0.01" min="0" required="true"/>
+        <div class="row">
+          <div class="labels"><label for="inputCurrentPrice">Current Price (£): </label></div>
+          <div class="values"><input id='inputCurrentPrice' onclick="this.select()" type='number' value="2" step="0.01" min="0" required="true"/></div>
         </div>
-        <div class="shares">
-          <label for="inputShares">Shares: </label>
-          <input id='inputShares' onclick="this.select()" type='number' value="1" min="1" required="true"/>
+        <div class="row">
+          <div class="labels"><label for="inputShares">Shares: </label></div>
+          <div class="values"><input id='inputShares' onclick="this.select()" type='number' value="1" min="1" required="true"/></div>
         </div>
-        <div class="dividends">
-          <label for="inputDividends">Dividends (£): </label>
-          <input id='inputDividends' onclick="this.select()" type='number' value="0" step="0.01" min="0" required="true"/>
+        <div class="row">
+          <div class="labels"><label for="inputDividends">Dividends (£): </label></div>
+          <div class="values"><input id='inputDividends' onclick="this.select()" type='number' value="0" step="0.01" min="0" required="true"/></div>
         </div>
 
         <hr></hr>
 
-        <input type='submit' />
+        <div class="row">
+          <input type='submit' />
+        </div>
+
       </form>
     </div>
 
@@ -110,7 +114,7 @@
 
 
 
-    <hr></hr>
+    <hr class="mainHR"></hr>
     <form method="post" action="/index.html">
       <button type="submit">Back to home page</button>
     </form>

@@ -10,26 +10,25 @@
     padding-right: 0.4em;
 }
 
+
 div#container {
-  border-style: solid;
-  border-width: 10px;
-  border-color: red;
+  border: 10px solid red;
 }
 
 table#tableAllPlayers {
   width: 100%;
-  table-layout: fixed;
+  border-spacing: 0;
 }
 
-td {
-  border-style: solid;
-  border-width: 10px;
-  border-color: green;
+table#tableAllPlayers td {
+  border-top: 3px solid green;
+  border-bottom: 3px solid green;
   text-align: center;
+  font-size: 30px;
 }
 
-tr.generatedRow {
-  background-color: grey;
+table#tableAllPlayers tr.generatedRow {
+  background-color: lightgrey;
   transition: background-color 0.5s linear; /* vendorless fallback */
   -o-transition: background-color 0.5s linear; /* opera */
   -ms-transition: background-color 0.5s linear; /* IE 10 */
@@ -37,10 +36,14 @@ tr.generatedRow {
   -webkit-transition: background-color 0.5s linear; /*safari and chrome */
 }
 
-tr.generatedRow:hover {
+table#tableAllPlayers tr.generatedRow:hover {
   background-color: pink;
+}
+
+table#tableAllPlayers tr.topRow{
+  background-color: grey;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .youngPlayers, .positiveProfit, .underboughtPlayer {
@@ -49,4 +52,45 @@ tr.generatedRow:hover {
 
 .oldPlayers, .negativeProfit, .overboughtPlayer {
   background-color: #ff4d4d; // light red
+}
+
+div#addPlayerDiv {
+  /*background-color: #99ebff; // light blue*/
+  padding: 20px;
+}
+
+
+#addPlayer hr {
+  margin-top: 7px;
+  display: inline-block;
+  border: 2px solid lightgrey;
+  width: 100%;
+}
+
+.mainHR {
+  display: inline-block;
+  border: 3px solid lightgrey;
+  width: 100%;
+}
+
+div.values {
+  margin-top: 7px;
+  float: left;
+  width: 58%;
+}
+
+div.labels {
+  margin-top: 7px;
+  float: left;
+  width: 42%;
+}
+
+div.values input[type=text], div.values select, div.values input[type=number]{
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type=submit] {
+  float: right;
 }
