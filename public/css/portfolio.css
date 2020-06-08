@@ -10,6 +10,16 @@
     padding-right: 0.4em;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(217, 217, 217, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 217, 217, 0.7)
+}
+
 #blurredBackground {
   width: 100%;
   position: absolute;
