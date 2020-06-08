@@ -115,3 +115,33 @@ div.values input[type=text], div.values select, div.values input[type=number]{
 input[type=submit] {
   float: right;
 }
+
+div.navigation {
+  margin top: 2%;
+  margin-left: 19%;
+  width: 61vw;
+}
+
+div.navigation div {
+  display: inline-block;
+}
+
+button.buttonsFromNavigation {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: 5px solid rgba(0, 0, 0, 0.3); /* black */
+  border-left: rgba(0,0,0,0);
+  border-right: rgba(0,0,0,0);
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1.5vw;
+  color: rgba(0, 0, 30, 0.6); /* greyblue */
+  overflow: hidden;
+  outline: none;
+  width: 20vw;
+}
+
+button.buttonsFromNavigation:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}

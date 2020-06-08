@@ -16,14 +16,14 @@
   border-radius: 30px;
   cursor: pointer;
   font-family: Verdana, Geneva, sans-serif;
-  font-size: 4vw;
+  font-size: 2vw;
   color: rgba(0, 0, 30, 0.3); /* greyblue */
   overflow: hidden;
   outline: none;
   position: fixed;
   top: 65%;
-  left: 35%;
-  width: 30%;
+  left: 40%;
+  width: 20%;
 }
 
 #goToPortfolioButton:hover {
