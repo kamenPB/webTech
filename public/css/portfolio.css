@@ -30,7 +30,7 @@
 }
 
 
-div#container {
+div#header {
   border: 10px solid red;
   height: 80vh;
   overflow-y: scroll;
@@ -118,7 +118,7 @@ input[type=submit] {
 
 div.navigation {
   margin top: 2%;
-  margin-left: 19%;
+  margin-left: 20%;
   width: 61vw;
 }
 
@@ -144,4 +144,9 @@ button.buttonsFromNavigation {
 
 button.buttonsFromNavigation:hover {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+div#backToHomepageButton {
+  margin-left: 40%;
+  width: 21vw;
 }
