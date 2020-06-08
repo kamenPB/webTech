@@ -10,9 +10,20 @@
     padding-right: 0.4em;
 }
 
+#blurredBackground {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
 
 div#container {
   border: 10px solid red;
+  height: 80vh;
+  overflow-y: scroll;
 }
 
 table#tableAllPlayers {
@@ -28,7 +39,7 @@ table#tableAllPlayers td {
 }
 
 table#tableAllPlayers tr.generatedRow {
-  background-color: lightgrey;
+  background-color: rgba(217, 217, 217, 0.3); /* light gray */
   transition: background-color 0.5s linear; /* vendorless fallback */
   -o-transition: background-color 0.5s linear; /* opera */
   -ms-transition: background-color 0.5s linear; /* IE 10 */
@@ -47,11 +58,11 @@ table#tableAllPlayers tr.topRow{
 }
 
 .youngPlayers, .positiveProfit, .underboughtPlayer {
-  background-color: #99ffdd; // light green
+  background-color: rgb(153, 255, 221, 0.6); /* light green */
 }
 
 .oldPlayers, .negativeProfit, .overboughtPlayer {
-  background-color: #ff4d4d; // light red
+  background-color: rgb(255, 77, 77, 0.6); /* light red */
 }
 
 div#addPlayerDiv {

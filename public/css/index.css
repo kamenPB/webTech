@@ -1,4 +1,4 @@
-#background {
+#mainBackground {
   width: 100%;
   position: absolute;
   top: 0;
@@ -10,16 +10,18 @@
 #goToPortfolioButton {
   background-color: Transparent;
   background-repeat: no-repeat;
-  border: 5px solid #000000; /* black */
+  border: 5px solid rgba(0, 0, 0, 0.3); /* black */
+  border-left: rgba(0,0,0,0);
+  border-right: rgba(0,0,0,0);
   border-radius: 30px;
   cursor: pointer;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 4vw;
-  color: rgba(0, 0, 30, 0.5); /* greyblue */
+  color: rgba(0, 0, 30, 0.3); /* greyblue */
   overflow: hidden;
   outline: none;
   position: fixed;
-  top: 70%;
+  top: 65%;
   left: 35%;
   width: 30%;
 }
