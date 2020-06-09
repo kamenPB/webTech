@@ -94,7 +94,7 @@ function generateFields(data, key) {
           inputType = "number";
           numberStep = 0.01;
           break;
-        default: labelText = "DEFAULT CASE TRIGGERED";
+        default: labelText = "DEFAULT CASE";
       }
 
 
@@ -149,19 +149,19 @@ function saveEditedPlayerToDatabase(data, key){
     if (prop == "age" || prop == "shares") {
       var postiveInt = Number(document.getElementById(prop).value);
       if(postiveInt < 1 || !Number.isInteger(postiveInt)) {
-        errorText += "\n wrong " + prop + " input;";
+        errorText += "\n Wrong " + prop + " input.";
       }
     }
     if (prop == "buy_price" || prop == "dividends" || prop == "current_price") {
       var price = Number(document.getElementById(prop).value);
       if(price < 0 || countDecimals(price) > 2) {
-        errorText += "\n wrong " + prop + " input";
+        errorText += "\n Wrong " + prop + " input.";
       }
     }
     if (prop == "name" || prop == "country") {
       var string = document.getElementById(prop).value;
       if(string == "") { // add other conditions
-        errorText += "\n wrong " + prop + " input";
+        errorText += "\n Wrong " + prop + " input.";
       }
     }
   }
@@ -195,7 +195,7 @@ function saveEditedPlayerToDatabase(data, key){
 
   // close window (maybe add confirmation)
   closeDialog("#editPlayerDiv");
-  alert("player saved");
+  alert("Player saved and updated.");
 }
 
 

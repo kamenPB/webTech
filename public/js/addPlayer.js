@@ -46,7 +46,7 @@ if (form) {
         closeDialog("#addPlayerDiv");
 
         //shows alert if everything went well.
-        return alert('Data Successfully Sent to Realtime Database');
+        return alert('Player successfully submitted.');
     })
 }
 
