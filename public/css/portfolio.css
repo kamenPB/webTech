@@ -70,11 +70,11 @@ table#tableAllPlayers tr.topRow{
 }
 
 .youngPlayers, .positiveProfit, .underboughtPlayer {
-  background-color: rgba(153, 255, 221, 0.6); /* light green */
+  background-color: rgba(153, 255, 221, 0.6) !important; /* light green */
 }
 
 .oldPlayers, .negativeProfit, .overboughtPlayer {
-  background-color: rgba(255, 77, 77, 0.6); /* light red */
+  background-color: rgba(255, 77, 77, 0.6) !important; /* light red */
 }
 
 div#addPlayerDiv {
@@ -154,7 +154,7 @@ div#backToHomepageButton {
 }
 
 #netProfit {
-  background-color: Transparent;
+  background-color: rgba(0, 0, 0, 0);
   background-repeat: no-repeat;
   border: 5px solid rgba(0, 0, 0, 0.3); /* black */
   border-left: rgba(0,0,0,0);

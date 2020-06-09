@@ -43,9 +43,6 @@ function toggleFactors(){
 
       });
 
-      //console.log(getPortfolioValue());
-      //console.log(getPortfolioCost());
-
       // generate report
       // TODO
 

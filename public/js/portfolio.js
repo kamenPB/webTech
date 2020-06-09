@@ -1,3 +1,5 @@
+var netProfit = 0;
+
 // get elements
 const table = document.getElementById("tableAllPlayers");
 
@@ -52,6 +54,7 @@ dbRefPlayers.on("child_added", snap => {
   var profit = fixed2(Number(value) + Number(dividends) - Number(cost) - Number(comm));
   tdProfit.id = (playerKey).toString() + "profit";
   tdProfit.innerText = "£" + profit;
+  netProfit += Number(profit);
   tr.appendChild(tdProfit);
 
   tr.id = snap.key;
@@ -72,6 +75,8 @@ dbRefPlayers.on("child_added", snap => {
     addClass(profitID, "negativeProfit");
   }
 
+  document.getElementById("netProfit").innerText = "Net profit: £" + fixed2(netProfit);
+
 });
 
 // update on remove
@@ -79,3 +84,12 @@ dbRefPlayers.on("child_removed", snap => {
   const trToRemove = document.getElementById(snap.key);
   trToRemove.parentNode.removeChild(trToRemove);
 });
+
+
+// // check the net profit and add colors
+// var netProfitID = "#netProfit";
+// if(netProfit > 0) {
+//   addClass(netProfitID, "positiveProfit");
+// } else {
+//   addClass(netProfitID, "negativeProfit");
+// }
