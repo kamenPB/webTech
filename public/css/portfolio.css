@@ -11,7 +11,7 @@
     padding-right: 0.4em;
 }
 
-/* Does not work on mozilla */
+/* Does not work on mozilla, edge */
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -70,11 +70,11 @@ table#tableAllPlayers tr.topRow{
 }
 
 .youngPlayers, .positiveProfit, .underboughtPlayer {
-  background-color: rgb(153, 255, 221, 0.6); /* light green */
+  background-color: rgba(153, 255, 221, 0.6); /* light green */
 }
 
 .oldPlayers, .negativeProfit, .overboughtPlayer {
-  background-color: rgb(255, 77, 77, 0.6); /* light red */
+  background-color: rgba(255, 77, 77, 0.6); /* light red */
 }
 
 div#addPlayerDiv {
@@ -110,7 +110,7 @@ div.labels {
 
 div.values input[type=text], div.values select, div.values input[type=number]{
   width: 100%;
-  border: 1px solid #ccc;
+  border: 1px solid grey;
   border-radius: 4px;
 }
 
