@@ -34,7 +34,7 @@
 
 div#header {
   border: 10px solid red;
-  height: 79.5vh;
+  height: 77vh;
   overflow-y: scroll;
 }
 
@@ -47,7 +47,7 @@ table#tableAllPlayers td {
   border-top: 3px solid green;
   border-bottom: 3px solid green;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 table#tableAllPlayers tr.generatedRow {
@@ -66,7 +66,7 @@ table#tableAllPlayers tr.generatedRow:hover {
 table#tableAllPlayers tr.topRow{
   background-color: grey;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .youngPlayers, .positiveProfit, .underboughtPlayer {
