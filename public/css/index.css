@@ -10,22 +10,22 @@
 #goToPortfolioButton {
   background-color: Transparent;
   background-repeat: no-repeat;
-  border: 5px solid rgba(0, 0, 0, 0.3); /* black */
+  border: 5px solid rgba(36, 28, 218, 0.6); /* blue of theme */
   border-left: rgba(0,0,0,0);
   border-right: rgba(0,0,0,0);
   border-radius: 30px;
   cursor: pointer;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 2vw;
-  color: rgba(0, 0, 30, 0.3); /* greyblue */
+  color: rgba(36, 28, 218, 0.6); /* blue of theme */
   overflow: hidden;
   outline: none;
   position: fixed;
-  top: 65%;
+  top: 73%;
   left: 40%;
   width: 20%;
 }
 
 #goToPortfolioButton:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.15);
 }
