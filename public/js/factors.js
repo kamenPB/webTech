@@ -16,7 +16,7 @@ function toggleFactors(){
       snap.forEach(childSnap => {
         var pAge = childSnap.val().age;
         var pShares = childSnap.val().shares;
-        var pBuyPrice = childSnap.val().buy_price;
+        var pBuyPrice = childSnap.val().current_price;
         var pValue = getPlayerValue(pBuyPrice, pShares);
 
         // ======= AGE ======================
@@ -32,8 +32,12 @@ function toggleFactors(){
           addClass(pID, "oldPlayers");
         }
 
+
         // ========= VALUE =======================
         pID = "#" + (childSnap.key).toString() + "value";
+        var portfolio = getPortfolioValue();
+        //console.log(portfolio);
+        //console.log(pValue);
         if(pValue > getPortfolioValue() * thresholdValueOverbought){
           addClass(pID, "overboughtPlayer");
         }
